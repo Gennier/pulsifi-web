@@ -49,7 +49,7 @@ export default function SignUpForm() {
       .catch((error) => {
         snackbarContext.onOpen?.({
           show: true,
-          message: error.response.data.message,
+          message: error?.response?.data?.message,
           type: 'error',
         });
       });
