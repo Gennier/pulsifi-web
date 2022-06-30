@@ -24,6 +24,11 @@ export default function SignUpForm() {
 
   const handleRegister = handleSubmit(async (data) => {
     if (data.password !== data.repeatPassword) {
+      snackbarContext.onOpen?.({
+        show: true,
+        message: 'Password does not match',
+        type: 'error',
+      });
       return;
     }
 
@@ -68,7 +73,7 @@ export default function SignUpForm() {
         <p className='mt-2 text-sm text-gray-600'>
           Or{' '}
           <Link to={'/login'} className='font-medium text-indigo-600 hover:text-indigo-500'>
-            sign-in here
+            login here
           </Link>
         </p>
       </div>

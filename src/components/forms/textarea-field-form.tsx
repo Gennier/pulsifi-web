@@ -6,6 +6,7 @@ type InputFieldFormProps = {
   customClassInput?: string;
   register?: any;
   reg?: string;
+  required?: boolean;
 };
 
 export default function TextareaFieldForm({
@@ -16,6 +17,7 @@ export default function TextareaFieldForm({
   customClassInput,
   register,
   reg,
+  required = true,
 }: InputFieldFormProps) {
   return (
     <>
@@ -23,6 +25,7 @@ export default function TextareaFieldForm({
         {label}
       </label>
       <textarea
+        required={required}
         id={id}
         rows={rows || 3}
         className={`mt-2 block w-full shadow-sm text-xs focus:primary-color focus:primary-color border-gray-300 rounded-md ${customClassInput}`}

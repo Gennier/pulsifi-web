@@ -1,11 +1,18 @@
-import * as React from 'react';
+import { ChevronLeftIcon } from '@heroicons/react/solid';
+import { useNavigate } from 'react-router-dom';
 import SignUpForm from '../components/forms/register-form';
 
 export default function Register() {
+  const navigate = useNavigate();
+
   return (
     <div className='h-screen flex bg-white'>
       <div className='flex-1 flex flex-col justify-center py-12 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24'>
-        <div className='mx-auto w-full max-w-sm lg:w-96'>
+        <div className='mx-auto w-full max-w-sm lg:w-96 space-y-4'>
+          <div className='flex row item-center place-items-center cursor-pointer' onClick={() => navigate('/')}>
+            <ChevronLeftIcon className='h-4 w-4 mr-1' />
+            <p className='text-xs font-medium'>Back to home</p>
+          </div>
           <SignUpForm />
         </div>
       </div>

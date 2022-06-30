@@ -32,7 +32,7 @@ export default function SignInForm() {
         setIsAuthenticated(true);
         snackbarContext.onOpen?.({
           show: true,
-          message: 'Register successfully',
+          message: 'Login successfully',
           type: 'success',
         });
         navigate('/');

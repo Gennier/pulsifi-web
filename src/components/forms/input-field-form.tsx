@@ -7,6 +7,7 @@ type InputFieldFormProps = {
   register?: any;
   reg?: string;
   handleOnChange?: Function;
+  required?: boolean;
 };
 
 export default function InputFieldForm({
@@ -18,6 +19,7 @@ export default function InputFieldForm({
   register,
   reg,
   handleOnChange,
+  required = true,
 }: InputFieldFormProps) {
   return (
     <div>
@@ -25,6 +27,7 @@ export default function InputFieldForm({
         {label}
       </label>
       <input
+        required={required}
         type={type}
         id={id}
         className={`mt-2 block w-full shadow-sm text-xs focus:primary-color focus:primary-color border-gray-300 rounded-md ${customClassInput}`}
