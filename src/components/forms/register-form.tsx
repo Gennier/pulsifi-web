@@ -66,8 +66,8 @@ export default function SignUpForm() {
       <div>
         <img
           className='h-12 w-auto'
-          src='https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg'
-          alt='Workflow'
+          src='https://pulsifi.me/wp-content/uploads/2020/01/logo-colored.svg'
+          alt='Pulsifi'
         />
         <h2 className='mt-6 text-3xl font-extrabold text-gray-900'>Register a recruiter account</h2>
         <p className='mt-2 text-sm text-gray-600'>

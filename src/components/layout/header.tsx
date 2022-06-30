@@ -38,7 +38,7 @@ export default function Header() {
                   <img
                     className='hidden sm:block h-8 w-auto'
                     src='https://pulsifi.me/wp-content/uploads/2020/01/logo-colored.svg'
-                    alt='Workflow'
+                    alt='Pulsifi'
                   />
                   {/* <img
                     className='block sm:hidden h-4 w-auto'
