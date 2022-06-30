@@ -4,6 +4,7 @@ import { MailIcon, PhoneIcon, LocationMarkerIcon, EyeIcon } from '@heroicons/rea
 import ViewJobSlideOver from '../components/slide-overs/view-job-slide-overs';
 import { useState } from 'react';
 import axios from '../utils/axios';
+import RegisterBanner from '../components/banner/register-banner';
 
 export default function Index() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -59,6 +60,7 @@ export default function Index() {
             </li>
           ))}
       </ul>
+      <RegisterBanner />
 
       <ViewJobSlideOver open={modalOpen} handleCloseModel={handleCloseModel} data={jobData} />
     </Layout>
