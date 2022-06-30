@@ -34,7 +34,18 @@ export default function Header() {
                 </Disclosure.Button>
               </div>
               <div className='flex-1 flex items-center justify-center sm:items-stretch sm:justify-start'>
-                <div className='flex-shrink-0 flex items-center'></div>
+                <div className='flex-shrink-0 flex items-center'>
+                  <img
+                    className='hidden sm:block h-8 w-auto'
+                    src='https://pulsifi.me/wp-content/uploads/2020/01/logo-colored.svg'
+                    alt='Workflow'
+                  />
+                  {/* <img
+                    className='block sm:hidden h-4 w-auto'
+                    src='https://pulsifi.me/wp-content/uploads/2020/01/logo-colored.svg'
+                    alt='Workflow'
+                  /> */}
+                </div>
                 <div className='hidden sm:ml-6 sm:flex sm:space-x-8'>
                   {navigation.map((nav) => (
                     <>
@@ -61,13 +72,13 @@ export default function Header() {
                   <>
                     <Link
                       to={'/login'}
-                      className='whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900'
+                      className='whitespace-nowrap text-sm font-medium text-gray-500 hover:text-gray-900'
                     >
                       Sign in
                     </Link>
                     <Link
                       to={'/register'}
-                      className='ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700'
+                      className='ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-xs font-medium text-white bg-indigo-600 hover:bg-indigo-700'
                     >
                       Sign up
                     </Link>
@@ -143,13 +154,15 @@ export default function Header() {
               >
                 Home
               </Disclosure.Button>
-              <Disclosure.Button
-                as='a'
-                href='/dashboard/jobs'
-                className='border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium'
-              >
-                Dashboard
-              </Disclosure.Button>
+              {isAuthenticated && (
+                <Disclosure.Button
+                  as='a'
+                  href='/dashboard/jobs'
+                  className='border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium'
+                >
+                  Dashboard
+                </Disclosure.Button>
+              )}
             </div>
           </Disclosure.Panel>
         </>
