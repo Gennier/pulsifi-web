@@ -139,6 +139,7 @@ export default function JobSlideOver({
                               id='description'
                               register={register}
                               reg={'description'}
+                              rows={15}
                             />
                           </div>
                         </div>

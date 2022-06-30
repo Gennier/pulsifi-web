@@ -9,7 +9,7 @@ export default function Index() {
   const [modalOpen, setModalOpen] = useState(false);
   const [jobData, setJobData] = useState(null);
 
-  const { data, loading } = useFetchData({ url: 'http://localhost:4000/api/jobs' });
+  const { data, loading } = useFetchData({ url: 'jobs', params: { status: 'active' } });
 
   const handleOpenViewModel = async (id: string) => {
     await axios.get(`jobs/${id}`).then((response) => setJobData(response.data));
@@ -24,7 +24,7 @@ export default function Index() {
     <Layout>
       <ul className='grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3'>
         {!loading &&
-          data.map((job: any) => (
+          data?.map((job: any) => (
             <li key={job.id} className='col-span-1 bg-white rounded-lg shadow divide-y divide-gray-200'>
               <div className='w-full flex items-center justify-between p-6 space-x-6'>
                 <div className='flex-1 truncate'>

@@ -3,9 +3,10 @@ import axios from '../utils/axios';
 
 type useFetchDataProps = {
   url: string;
+  params?: any;
 };
 
-export default function useFetchData({ url }: useFetchDataProps) {
+export default function useFetchData({ url, params }: useFetchDataProps) {
   const [data, setData] = useState<any>();
   const [loading, setLoading] = useState(true);
   const [trigger, setTrigger] = useState(true);
@@ -17,7 +18,7 @@ export default function useFetchData({ url }: useFetchDataProps) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const { data: response } = await axios.get(url);
+        const { data: response } = await axios.get(url, { params: { ...(params && params) } });
         setData(response);
       } catch (error) {
         console.error(error);

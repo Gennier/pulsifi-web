@@ -1,9 +1,11 @@
 import axios from 'axios';
+import { getAccessToken } from './local-storage';
 
 const instance = axios.create({
-  baseURL: 'http://localhost:4000/api/',
+  baseURL: process.env.REACT_APP_BASE_API_URL,
+  headers: {
+    Authorization: `Bearer ${getAccessToken()}`,
+  },
 });
-
-// instance.defaults.headers.common['Authorization'] = 'AUTH TOKEN FROM INSTANCE';
 
 export default instance;

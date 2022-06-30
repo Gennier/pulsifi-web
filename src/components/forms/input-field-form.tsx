@@ -20,7 +20,7 @@ export default function InputFieldForm({
   handleOnChange,
 }: InputFieldFormProps) {
   return (
-    <>
+    <div>
       <label htmlFor={id} className={`block text-xs font-semibold text-gray-700 sm:mt-px sm:pt-2 ${customClassLabel}`}>
         {label}
       </label>
@@ -36,6 +36,6 @@ export default function InputFieldForm({
           }),
         })}
       />
-    </>
+    </div>
   );
 }
