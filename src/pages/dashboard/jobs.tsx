@@ -54,6 +54,8 @@ export default function Jobs() {
       <Table header={['Title', 'Location', 'Status', 'Create Date']}>
         <>
           {!loading &&
+            data &&
+            data.length > 0 &&
             data.map((job: any) => (
               <tr key={job.id}>
                 <td className='px-6 py-4 whitespace-nowrap'>
