@@ -47,6 +47,7 @@ export default function SignUpForm() {
         navigate('/');
       })
       .catch((error) => {
+        console.log(error);
         snackbarContext.onOpen?.({
           show: true,
           message: error?.response?.data?.message,

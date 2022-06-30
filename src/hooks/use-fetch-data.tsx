@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import axios from '../utils/axios';
+import { getAccessToken } from '../utils/local-storage';
 
 type useFetchDataProps = {
   url: string;
@@ -18,7 +19,10 @@ export default function useFetchData({ url, params }: useFetchDataProps) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const { data: response } = await axios.get(url, { params: { ...(params && params) } });
+        const { data: response } = await axios.get(url, {
+          params: { ...(params && params) },
+          headers: { Authorization: `Bearer ${getAccessToken()}` },
+        });
         setData(response);
       } catch (error) {
         console.error(error);

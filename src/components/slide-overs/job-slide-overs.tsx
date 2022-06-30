@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form';
 import InputFieldForm from '../forms/input-field-form';
 import TextareaFieldForm from '../forms/textarea-field-form';
 import axios from '../../utils/axios';
+import { getAccessToken } from '../../utils/local-storage';
 
 type JobSlideOverProps = {
   isEdit: boolean;
@@ -40,22 +41,34 @@ export default function JobSlideOver({
 
   const handleCreateJob = handleSubmit(async (data: any) => {
     await axios
-      .post('jobs', {
-        title: data.title,
-        description: data.description,
-        location: data.location,
-      })
+      .post(
+        'jobs',
+        {
+          title: data.title,
+          description: data.description,
+          location: data.location,
+        },
+        {
+          headers: { Authorization: `Bearer ${getAccessToken()}` },
+        }
+      )
       .then((response) => handleCloseModel());
   });
 
   const handleUpdateJob = handleSubmit(async (data: any) => {
     await axios
-      .put(`jobs/${data.id}`, {
-        id: data.id,
-        title: data.title,
-        description: data.description,
-        location: data.location,
-      })
+      .put(
+        `jobs/${data.id}`,
+        {
+          id: data.id,
+          title: data.title,
+          description: data.description,
+          location: data.location,
+        },
+        {
+          headers: { Authorization: `Bearer ${getAccessToken()}` },
+        }
+      )
       .then((response) => handleCloseModel());
   });
 

@@ -7,6 +7,7 @@ import JobSlideOver from '../../components/slide-overs/job-slide-overs';
 import axios from '../../utils/axios';
 import SwitchFieldForm from '../../components/forms/switch-field-form';
 import { JobStatus } from '../../data/enum';
+import { getAccessToken } from '../../utils/local-storage';
 
 export default function Jobs() {
   const [isEdit, setIsEdit] = useState(false);
@@ -77,9 +78,15 @@ export default function Jobs() {
                       isToggle={job.status === JobStatus.active ? true : false}
                       handleSetIsToggle={async (data: boolean) => {
                         await axios
-                          .put(`jobs/${job.id}`, {
-                            status: data ? JobStatus.active : JobStatus.inactive,
-                          })
+                          .put(
+                            `jobs/${job.id}`,
+                            {
+                              status: data ? JobStatus.active : JobStatus.inactive,
+                            },
+                            {
+                              headers: { Authorization: `Bearer ${getAccessToken()}` },
+                            }
+                          )
                           .then((response) => refetch());
                       }}
                     />
