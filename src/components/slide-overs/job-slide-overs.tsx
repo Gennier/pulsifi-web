@@ -114,7 +114,7 @@ export default function JobSlideOver({
                       <div className='flex items-start justify-between space-x-3'>
                         <div className='space-y-1'>
                           <Dialog.Title className='text-xl font-bold text-gray-900'>
-                            {(isCreate ? 'Create' : 'Edit') + ' Author'}
+                            {(isCreate ? 'Create' : 'Edit') + ' Job'}
                           </Dialog.Title>
                         </div>
                         <div className='h-7 flex items-center'>
